@@ -38,7 +38,7 @@
     "gifts": {
       "type": "vinesiek-gifts",
       "settings": {
-        "title": "Luxury Gifts"
+        "title": "Luxury Gifts Selection"
       }
     },
 
@@ -52,7 +52,7 @@
     "story": {
       "type": "vinesiek-story",
       "settings": {
-        "title": "Our Story"
+        "title": "Our Brand Story"
       }
     },
 
