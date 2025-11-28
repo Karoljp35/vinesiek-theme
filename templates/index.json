@@ -1,6 +1,11 @@
 {
   "sections": {
-    "vinesiek-hero": {
+    "header": {
+      "type": "vinesiek-header",
+      "settings": {}
+    },
+
+    "hero": {
       "type": "vinesiek-hero",
       "settings": {
         "hero_image": "vinesiek-hero.jpg",
@@ -9,18 +14,69 @@
         "alignment": "center"
       }
     },
-    "main-collection": {
-      "type": "vinesiek-main-collection",
+
+    "collections": {
+      "type": "vinesiek-collections",
       "settings": {
-        "title": "Coleções VINESIEK",
+        "title": "Coleções VINESEIK",
         "show_product_count": true
       }
+    },
+
+    "products": {
+      "type": "vinesiek-products",
+      "settings": {}
+    },
+
+    "kids": {
+      "type": "vinesiek-kids",
+      "settings": {
+        "title": "ベビー ＆ キッズ プレミアム"
+      }
+    },
+
+    "gifts": {
+      "type": "vinesiek-gifts",
+      "settings": {
+        "title": "Luxury Gifts"
+      }
+    },
+
+    "signature": {
+      "type": "vinesiek-signature",
+      "settings": {
+        "title": "Signature Collection"
+      }
+    },
+
+    "story": {
+      "type": "vinesiek-story",
+      "settings": {
+        "title": "Our Story"
+      }
+    },
+
+    "newsletter": {
+      "type": "vinesiek-newsletter",
+      "settings": {}
+    },
+
+    "footer": {
+      "type": "vinesiek-footer",
+      "settings": {}
     }
   },
+
   "order": [
-    "vinesiek-hero",
-    "main-collection"
+    "header",
+    "hero",
+    "collections",
+    "products",
+    "kids",
+    "gifts",
+    "signature",
+    "story",
+    "newsletter",
+    "footer"
   ]
 }
-
-
