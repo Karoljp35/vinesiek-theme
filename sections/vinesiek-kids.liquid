@@ -1,0 +1,18 @@
+<h2 class="vinesiek-title">ベビー & キッズ</h2>
+
+<div class="kids-wrap">
+  <img src="{{ section.settings.kids_img | img_url: '1024x' }}" class="kids-image">
+  <p class="kids-text">{{ section.settings.kids_text }}</p>
+  <a href="{{ section.settings.kids_link }}" class="kids-btn">詳しく見る</a>
+</div>
+
+{% schema %}
+{
+  "name": "ベビー & キッズ セクション",
+  "settings": [
+    { "type": "image_picker", "id": "kids_img", "label": "Imagem" },
+    { "type": "textarea", "id": "kids_text", "label": "Descrição" },
+    { "type": "url", "id": "kids_link", "label": "Link" }
+  ]
+}
+{% endschema %}
