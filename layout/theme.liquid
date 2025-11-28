@@ -1,1 +1,23 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description | escape }}">
 
+    {{ content_for_header }}
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="vinesiek-body">
+    {% section 'vinesiek-header' %}
+
+    <main id="MainContent" role="main" class="vinesiek-main">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'vinesiek-footer' %}
+  </body>
+</html>
