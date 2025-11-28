@@ -1,0 +1,138 @@
+{% comment %}
+  VINESIEK IMPERIAL RUBY - HEADER SECTION
+  Design premium de boutique de luxo, minimalista e elegante.
+{% endcomment %}
+
+<section class="vinesiek-header-wrapper">
+  <header class="vinesiek-header">
+
+    <div class="vinesiek-header-left">
+      <a href="/" class="vinesiek-logo">
+        {% if section.settings.logo != blank %}
+          <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}" />
+        {% else %}
+          <span class="vinesiek-logo-text">{{ shop.name }}</span>
+        {% endif %}
+      </a>
+    </div>
+
+    <nav class="vinesiek-nav">
+      <ul>
+        {% for link in linklists[section.settings.main_menu].links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="vinesiek-header-icons">
+      <a href="/search" class="icon-search">🔍</a>
+      <a href="/account" class="icon-account">👤</a>
+      <a href="/cart" class="icon-cart">🛒</a>
+    </div>
+
+  </header>
+</section>
+
+<style>
+  .vinesiek-header-wrapper {
+    width: 100%;
+    background: #C0125A;
+    padding: 10px 0;
+    border-bottom: 2px solid #E7C56F;
+  }
+
+  .vinesiek-header {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+  }
+
+  .vinesiek-logo img {
+    height: {{ section.settings.logo_height }}px;
+    width: auto;
+  }
+
+  .vinesiek-logo-text {
+    font-size: 32px;
+    font-weight: 600;
+    color: #E7C56F;
+    font-family: serif;
+  }
+
+  .vinesiek-nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .vinesiek-nav a {
+    color: #FFDDEA;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
+  }
+
+  .vinesiek-nav a:hover {
+    color: #FFFFFF;
+    text-shadow: 0 0 6px #E7C56F;
+  }
+
+  .vinesiek-header-icons a {
+    margin-left: 16px;
+    font-size: 20px;
+    color: #FFDDEA;
+    text-decoration: none;
+  }
+
+  .vinesiek-header-icons a:hover {
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .vinesiek-nav ul {
+      display: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "VINESIEK Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo da marca"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 30,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 60,
+      "label": "Altura do logo"
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Menu principal",
+      "default": "main-menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "VINESIEK Header"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Configurações gerais VINESIEK",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo principal da loja"
+      }
+    ]
+  }
+]
+

@@ -1,0 +1,112 @@
+{% comment %}
+  VINESIEK IMPERIAL RUBY - FOOTER SECTION
+  Estilo boutique japonesa + luxo europeu.
+{% endcomment %}
+
+<footer class="vinesiek-footer-wrapper">
+  <div class="vinesiek-footer">
+
+    <div class="footer-col">
+      <h4>{{ shop.name }}</h4>
+      <p>Style Starts Early</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Informações</h5>
+      <ul>
+        {% for link in linklists['footer'].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Contato</h5>
+      <p>Email: {{ shop.email }}</p>
+    </div>
+
+  </div>
+
+  <div class="vinesiek-footer-bottom">
+    <p>© {{ 'now' | date: "%Y" }} {{ shop.name }} – Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .vinesiek-footer-wrapper {
+    background: #C0125A;
+    border-top: 2px solid #E7C56F;
+    padding: 40px 0 0;
+  }
+
+  .vinesiek-footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .footer-col {
+    width: 30%;
+    min-width: 200px;
+    margin-bottom: 24px;
+  }
+
+  .footer-col h4, 
+  .footer-col h5 {
+    color: #FFE3F0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .footer-col p, 
+  .footer-col a {
+    color: #F9DCE9;
+    font-size: 15px;
+    line-height: 1.6;
+    text-decoration: none;
+  }
+
+  .footer-col a:hover {
+    color: white;
+    text-shadow: 0 0 6px #E7C56F;
+  }
+
+  .vinesiek-footer-bottom {
+    width: 100%;
+    background: #A50F47;
+    padding: 12px 0;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .vinesiek-footer-bottom p {
+    color: #FFDDEA;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .vinesiek-footer {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-col {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "VINESIEK Footer",
+  "settings": [],
+  "presets": [
+    {
+      "name": "VINESIEK Footer"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,140 @@
+{% comment %}
+  VINESIEK - Coleções Premium
+  Estilo boutique, cartões limpos, imagens grandes e tipografia minimalista de luxo.
+{% endcomment %}
+
+<section class="vinesiek-collections">
+
+  {% if section.settings.section_title != blank %}
+    <h2 class="vc-title">{{ section.settings.section_title }}</h2>
+  {% endif %}
+
+  <div class="vc-grid">
+
+    {% for collection in collections %}
+      <a class="vc-card" href="{{ collection.url }}">
+        
+        <div class="vc-image-wrapper">
+          {% if collection.image %}
+            <img src="{{ collection.image | image_url: width: 800 }}" alt="{{ collection.title }}">
+          {% else %}
+            <div class="vc-placeholder"></div>
+          {% endif %}
+        </div>
+
+        <div class="vc-info">
+          <h3 class="vc-name">{{ collection.title }}</h3>
+          <span class="vc-count">{{ collection.products_count }} produtos</span>
+        </div>
+
+      </a>
+    {% endfor %}
+
+  </div>
+
+</section>
+
+<style>
+  .vinesiek-collections {
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .vc-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #C0125A;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+  }
+
+  /* GRID */
+  .vc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+  }
+
+  /* CARDS */
+  .vc-card {
+    display: block;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.25s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .vc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 12px 24px rgba(0,0,0,0.08);
+  }
+
+  /* IMAGENS */
+  .vc-image-wrapper {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+  }
+
+  .vc-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+  }
+
+  .vc-card:hover .vc-image-wrapper img {
+    transform: scale(1.06);
+  }
+
+  .vc-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #C0125A, #A00046);
+    opacity: 0.2;
+  }
+
+  /* INFO */
+  .vc-info {
+    padding: 20px;
+  }
+
+  .vc-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #7A0B38;
+    margin-bottom: 6px;
+  }
+
+  .vc-count {
+    font-size: 14px;
+    color: #A15B76;
+  }
+
+  @media(max-width: 768px){
+    .vinesiek-collections {
+      padding: 40px 16px;
+    }
+    .vc-title {
+      font-size: 28px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Coleções Premium VINESIEK",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Título da seção",
+      "default": "Nossas Coleções Premium"
+    }
+  ],
+  "presets": [
+    { "name": "Coleções VINESIEK" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,215 @@
+{% comment %}
+  VINESIEK – Carrinho Premium
+{% endcomment %}
+
+<section class="vc-wrapper">
+
+  <h1 class="vc-title">ショッピングカート</h1>
+
+  {% if cart.item_count == 0 %}
+    <p class="vc-empty">カートは空です。</p>
+    <a href="/collections/all" class="vc-btn">商品を見る</a>
+  {% else %}
+
+  <div class="vc-grid">
+
+    <!-- LISTA DE PRODUTOS -->
+    <div class="vc-items">
+      {% for item in cart.items %}
+        <div class="vc-item">
+
+          <div class="vc-thumb">
+            <a href="{{ item.url }}">
+              <img src="{{ item.image | img_url: '400x' }}">
+            </a>
+          </div>
+
+          <div class="vc-info">
+            <a href="{{ item.url }}" class="vc-name">{{ item.product.title }}</a>
+
+            {% if item.variant.title != "Default Title" %}
+              <p class="vc-variant">{{ item.variant.title }}</p>
+            {% endif %}
+
+            <p class="vc-price">{{ item.line_price | money }}</p>
+
+            <!-- QUANTIDADE -->
+            <div class="vc-qty">
+              <form action="/cart/change" method="post">
+                <input type="hidden" name="id" value="{{ item.key }}">
+                <input class="vc-qty-input" type="number" name="quantity" min="0" value="{{ item.quantity }}">
+                <button class="vc-qty-btn" type="submit">更新</button>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- RESUMO -->
+    <div class="vc-summary">
+      <h2>ご注文内容</h2>
+
+      <div class="vc-summary-row">
+        <span>小計</span>
+        <span>{{ cart.total_price | money }}</span>
+      </div>
+
+      <p class="vc-note">* 配送料・税金はチェックアウト時に計算されます。</p>
+
+      <a href="/checkout" class="vc-btn-checkout">チェックアウトへ進む</a>
+
+    </div>
+
+  </div>
+
+  {% endif %}
+
+</section>
+
+
+<style>
+
+.vc-wrapper {
+  padding: 60px 40px;
+}
+
+.vc-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #7A0B38;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.vc-empty {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.vc-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  gap: 40px;
+}
+
+.vc-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.vc-thumb img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.vc-name {
+  font-size: 18px;
+  color: #7A0B38;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.vc-variant {
+  font-size: 14px;
+  color: #B16E83;
+}
+
+.vc-price {
+  font-size: 18px;
+  color: #C0125A;
+  margin: 6px 0;
+}
+
+.vc-qty {
+  margin-top: 10px;
+}
+
+.vc-qty-input {
+  width: 70px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.vc-qty-btn {
+  padding: 6px 10px;
+  background: #C0125A;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.vc-summary {
+  padding: 24px;
+  background: #FFF3F8;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  height: fit-content;
+}
+
+.vc-summary h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #7A0B38;
+}
+
+.vc-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.vc-note {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.vc-btn-checkout {
+  display: block;
+  background: #C0125A;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.vc-btn-checkout:hover {
+  background: #9E0F4A;
+}
+
+/* MOBILE */
+@media(max-width: 900px){
+  .vc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Carrinho Premium VINESIEK",
+  "settings": [],
+  "presets": [
+    { "name": "Página de Carrinho VINESIEK" }
+  ]
+}
+{% endschema %}

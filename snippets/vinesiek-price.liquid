@@ -1,0 +1,38 @@
+{% comment %}
+  Snippet de Preço – VINESIEK
+{% endcomment %}
+
+<span class="vsk-price">
+
+  {% if product.compare_at_price > product.price %}
+    <span class="vsk-price-compare">
+      {{ product.compare_at_price | money }}
+    </span>
+  {% endif %}
+
+  <span class="vsk-price-current">
+    {{ product.price | money }}
+  </span>
+
+</span>
+
+<style>
+  .vsk-price {
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .vsk-price-current {
+    color: #C0125A;
+  }
+
+  .vsk-price-compare {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 15px;
+  }
+</style>
+

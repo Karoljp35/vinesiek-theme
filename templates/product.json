@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "vinesiek-main-product",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}
+
+

@@ -1,0 +1,128 @@
+/* ============================
+   VINESIEK IMPERIAL RUBY THEME
+   Estilo global
+============================ */
+
+:root {
+  --vsk-ruby: #C0125A;
+  --vsk-ruby-dark: #9E0F4A;
+  --vsk-gold: #E7C56F;
+  --vsk-bg: #FFFFFF;
+  --vsk-bg-soft: #FFF6FA;
+  --vsk-text: #1A1A1A;
+  --vsk-muted: #777777;
+  --vsk-border: #E3E3E3;
+  --vsk-radius-card: 16px;
+  --vsk-shadow-soft: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* RESET SIMPLES */
+
+body.vinesiek-body {
+  margin: 0;
+  padding: 0;
+  background: var(--vsk-bg);
+  color: var(--vsk-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* MAIN WRAPPER */
+
+.vinesiek-main {
+  min-height: 60vh;
+}
+
+/* BOTÕES GENÉRICOS */
+
+.vsk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.18s ease-out;
+}
+
+.vsk-btn--primary {
+  background: var(--vsk-ruby);
+  color: #ffffff;
+  border-color: var(--vsk-ruby);
+}
+
+.vsk-btn--primary:hover {
+  background: var(--vsk-ruby-dark);
+  border-color: var(--vsk-ruby-dark);
+}
+
+.vsk-btn--ghost {
+  background: transparent;
+  color: var(--vsk-ruby);
+  border-color: var(--vsk-ruby);
+}
+
+.vsk-btn--ghost:hover {
+  background: rgba(192, 18, 90, 0.06);
+}
+
+/* INPUTS GENÉRICOS */
+
+.vsk-input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--vsk-border);
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vsk-input:focus {
+  outline: none;
+  border-color: var(--vsk-ruby);
+  box-shadow: 0 0 0 1px rgba(192, 18, 90, 0.3);
+}
+
+/* CARTÕES GENÉRICOS */
+
+.vsk-card {
+  background: #ffffff;
+  border-radius: var(--vsk-radius-card);
+  box-shadow: var(--vsk-shadow-soft);
+  overflow: hidden;
+}
+
+/* TITULOS PADRÃO */
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* RESPONSIVO GLOBAL */
+
+@media (max-width: 900px) {
+  body.vinesiek-body {
+    font-size: 14px;
+  }
+}
+
