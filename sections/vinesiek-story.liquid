@@ -1,0 +1,19 @@
+<h2 class="vinesiek-title">ブランドストーリー</h2>
+
+<div class="story-wrap">
+  <p>{{ section.settings.story_text }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "ブランドストーリー",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "story_text",
+      "label": "Texto",
+      "default": "ZUXE は日本で生まれたプレミアムブランドです。家族、安心、デザインを軸に、毎日に小さな幸福を届けます。"
+    }
+  ]
+}
+{% endschema %}
