@@ -1,130 +1,53 @@
-{% comment %}
-  VINESIEK IMPERIAL RUBY - HERO SECTION
-  Cinematográfico, luxo europeu + estética japonesa.
-{% endcomment %}
-
-<section class="vinesiek-hero">
-
+<div class="hero-wrapper">
   <div class="hero-bg">
-    {% if section.settings.hero_image != blank %}
-      <img src="{{ section.settings.hero_image | image_url }}" alt="VINESIEK Hero">
-    {% else %}
-      <div class="hero-placeholder"></div>
-    {% endif %}
+    <img src="{{ section.settings.hero_image | img_url: ' master' }}" alt="ZUXE Hero Banner">
   </div>
 
-  <div class="hero-overlay"></div>
-
-  <div class="hero-content" style="text-align: {{ section.settings.alignment }};">
+  <div class="hero-content">
     <h1 class="hero-title">{{ section.settings.hero_title }}</h1>
-
-    {% if section.settings.hero_subtitle != blank %}
-      <p class="hero-subtitle">{{ section.settings.hero_subtitle }}</p>
-    {% endif %}
+    <p class="hero-sub">{{ section.settings.hero_subtitle }}</p>
+    <a href="{{ section.settings.hero_button_link }}" class="hero-btn">
+      {{ section.settings.hero_button_text }}
+    </a>
   </div>
-
-</section>
-
-<style>
-  .vinesiek-hero {
-    position: relative;
-    width: 100%;
-    height: 520px;
-    overflow: hidden;
-  }
-
-  .vinesiek-hero .hero-bg img,
-  .hero-placeholder {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .hero-placeholder {
-    background: linear-gradient(135deg, #C0125A, #A50F47);
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(3px);
-  }
-
-  .hero-content {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-    padding: 0 40px;
-    color: #FDECEA;
-    text-shadow: 0 0 8px #000;
-  }
-
-  .hero-title {
-    font-size: 54px;
-    color: #FFD9EB;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-  }
-
-  .hero-subtitle {
-    font-size: 22px;
-    font-weight: 400;
-    color: #FFEAF5;
-  }
-
-  @media (max-width: 768px) {
-    .vinesiek-hero {
-      height: 380px;
-    }
-
-    .hero-title {
-      font-size: 34px;
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-    }
-  }
-</style>
+</div>
 
 {% schema %}
 {
-  "name": "VINESIEK Hero Section",
+  "name": "ビジュアル・ヒーロー",
   "settings": [
     {
       "type": "image_picker",
       "id": "hero_image",
-      "label": "Imagem do Hero"
+      "label": "Hero Image"
     },
     {
       "type": "text",
       "id": "hero_title",
-      "label": "Título principal",
-      "default": "Style Starts Early"
+      "label": "タイトル (JP)",
+      "default": "ZUXE プレミアムコレクション"
     },
     {
       "type": "text",
       "id": "hero_subtitle",
-      "label": "Subtítulo"
+      "label": "サブタイトル (JP)",
+      "default": "スタイル・品質・安心をあなたへ"
     },
     {
-      "type": "select",
-      "id": "alignment",
-      "label": "Alinhamento do texto",
-      "default": "center",
-      "options": [
-        { "label": "Esquerda", "value": "left" },
-        { "label": "Centro", "value": "center" },
-        { "label": "Direita", "value": "right" }
-      ]
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "ボタンの文字 (JP)",
+      "default": "今すぐチェック"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "ボタンのリンク"
     }
   ],
   "presets": [
     {
-      "name": "VINESIEK Hero"
+      "name": "Hero Section"
     }
   ]
 }
