@@ -1,0 +1,26 @@
+<h2 class="vinesiek-title">ラグジュアリーギフト</h2>
+
+<div class="gift-flex">
+  {% for block in section.blocks %}
+  <div class="gift-item">
+    <img src="{{ block.settings.gift_img | img_url: 'large' }}">
+    <span>{{ block.settings.gift_title }}</span>
+  </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "ギフトセクション",
+  "blocks": [
+    {
+      "type": "gift",
+      "name": "ギフト",
+      "settings": [
+        { "type": "text", "id": "gift_title", "label": "Título" },
+        { "type": "image_picker", "id": "gift_img", "label": "Imagem" }
+      ]
+    }
+  ]
+}
+{% endschema %}
