@@ -8,6 +8,35 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "vinesiek-hero": {
+      "type": "vinesiek-hero",
+      "settings": {
+        "hero_image": "",
+        "hero_title": "Style Starts Early",
+        "hero_subtitle": "Luxury Baby & Family Essentials"
+      }
+    },
+    "main-collection": {
+      "type": "vinesiek-main-collection",
+      "settings": {
+        "title": "Coleções VINESIEK",
+        "show_product_count": true
+      }
+    },
+    "vinesiek-products": {
+      "type": "vinesiek-products",
+      "settings": {}
+    },
+    "vinesiek-footer": {
+      "type": "vinesiek-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "vinesiek-hero",
+    "main-collection",
+    "vinesiek-products",
+    "vinesiek-footer"
+  ]
 }
