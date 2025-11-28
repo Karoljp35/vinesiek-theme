@@ -1,0 +1,47 @@
+{% comment %}
+Seção: VINESIEK - Coleções em Destaque
+{% endcomment %}
+
+<section class="vinesiek-collections-wrapper">
+  <h2 class="vinesiek-section-title">{{ section.settings.title }}</h2>
+
+  <div class="vinesiek-collections-grid">
+    {% for collection in collections %}
+      <a class="vinesiek-collection-card" href="{{ collection.url }}">
+        {% if collection.image %}
+          <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.title }}">
+        {% endif %}
+        <h3>{{ collection.title }}</h3>
+
+        {% if section.settings.show_product_count %}
+          <span class="count">{{ collection.products_count }} produtos</span>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "VINESIEK Coleções",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Coleções VINESIEK"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Exibir quantidade de produtos",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "VINESIEK Coleções"
+    }
+  ]
+}
+{% endschema %}
