@@ -1,0 +1,15 @@
+<h2 class="vinesiek-title">ニュースレター</h2>
+
+<div class="newsletter-wrap">
+  {% form 'customer' %}
+    <input type="email" name="contact[email]" placeholder="メールアドレスを入力" required>
+    <button type="submit">登録する</button>
+  {% endform %}
+</div>
+
+{% schema %}
+{
+  "name": "ニュースレター",
+  "settings": []
+}
+{% endschema %}
